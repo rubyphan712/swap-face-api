@@ -2,4 +2,5 @@ fastapi
 uvicorn
 opencv-python
 numpy
+insightface
 python-multipart
