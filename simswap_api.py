@@ -1,8 +1,12 @@
 import sys
 from pathlib import Path
 
-# Add SimSwap to Python path
-sys.path.append(str(Path(__file__).resolve().parent / "SimSwap"))
+# Determine absolute path to SimSwap
+current_dir = Path(__file__).resolve().parent
+simswap_dir = current_dir / "SimSwap"
+
+# Add it to the sys.path
+sys.path.insert(0, str(simswap_dir))
 
 import torch
 from PIL import Image
@@ -11,6 +15,7 @@ import numpy as np
 from models.models import create_model
 from util.face_align import align_face
 from options.test_options import TestOptions
+
 
 opt = TestOptions().parse()  # Use default config
 opt.name = 'people'
